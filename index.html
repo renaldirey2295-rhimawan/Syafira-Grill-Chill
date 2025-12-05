@@ -9,89 +9,93 @@
 
 <style>
 :root{
-  --primary:#e63946;
-  --dark:#0f0f0f;
-  --card:#161616;
-  --text:#eee;
-  --accent:#ffcc70;
+--primary:#e63946;
+--dark:#0f0f0f;
+--card:#161616;
+--text:#eee;
+--accent:#ffcc70;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--dark);
-  color:var(--text);
+margin:0;
+font-family:'Poppins',sans-serif;
+background:var(--dark);
+color:var(--text);
 }
 header{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-  url('https://images.unsplash.com/photo-1558030006-450675393462');
-  background-size:cover;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url('https://images.unsplash.com/photo-1558030006-450675393462');
+background-size:cover;
 }
-header h1{font-size:52px;margin:0}
 section{
-  padding:80px 20px;
-  max-width:1200px;
-  margin:auto;
-}
-h2{
-  text-align:center;
-  font-size:34px;
-  margin-bottom:50px;
+padding:80px 20px;
+max-width:1200px;
+margin:auto;
 }
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-  gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:30px;
 }
 .card{
-  background:var(--card);
-  padding:30px;
-  border-radius:22px;
+background:var(--card);
+padding:30px;
+border-radius:22px;
 }
 .badge{
-  background:var(--accent);
-  color:#000;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:600;
+background:var(--accent);
+color:#000;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:18px;
 }
 .btn{
-  background:var(--primary);
-  color:#fff;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  width:100%;
-  font-weight:600;
-  cursor:pointer;
+background:var(--primary);
+color:#fff;
+padding:14px;
+border-radius:12px;
+border:none;
+width:100%;
+font-weight:600;
+cursor:pointer;
 }
 form{
-  max-width:650px;
-  background:var(--card);
-  padding:40px;
-  border-radius:22px;
-  margin:auto;
+max-width:650px;
+background:var(--card);
+padding:40px;
+border-radius:22px;
+margin:auto;
 }
 label{display:block;margin-bottom:6px}
 input,select,textarea{
-  width:100%;
-  padding:14px;
-  border-radius:12px;
-  border:none;
-  margin-bottom:20px;
+width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+margin-bottom:20px;
 }
 footer{
-  text-align:center;
-  padding:30px;
-  color:#aaa;
+text-align:center;
+padding:30px;
+color:#aaa;
 }
 </style>
 </head>
@@ -99,25 +103,26 @@ footer{
 <body>
 
 <header>
-  <h1>Grill&Chill</h1>
-  <p>Premium BBQ Package • Lengkap • Praktis</p>
-  <a href="#booking" class="btn" style="width:auto">Booking Sekarang</a>
+<div>
+<h1>Grill&Chill</h1>
+<p>Premium BBQ Package • Lengkap • Praktis</p>
+<a href="#booking" class="btn" style="width:auto">Booking Sekarang</a>
+</div>
 </header>
 
 <section>
-<h2>Paket Grill</h2>
-
+<h2 style="text-align:center">Paket Grill</h2>
 <div class="grid">
 
 <div class="card">
 <span class="badge">Best Seller</span>
 <h3>Paket Romantic</h3>
 <ul>
-  <li>Grill Pan + Kompor + Gas</li>
-  <li>Beef 250gr</li>
-  <li>Chicken 250gr</li>
-  <li>Saus BBQ & Sayuran</li>
-  <li>Porsi 1–2 Orang</li>
+<li>Grill Pan + Kompor + Gas</li>
+<li>Beef 250gr</li>
+<li>Chicken 250gr</li>
+<li>Saus BBQ & Sayuran</li>
+<li>Porsi 1–2 Orang</li>
 </ul>
 <p><strong>Rp 119.000</strong></p>
 </div>
@@ -126,11 +131,11 @@ footer{
 <span class="badge">Favorit</span>
 <h3>Paket Party</h3>
 <ul>
-  <li>Grill Pan + Kompor + Gas</li>
-  <li>Beef 500gr</li>
-  <li>Chicken 500gr</li>
-  <li>Saus BBQ & Sayuran</li>
-  <li>Porsi 4–5 Orang</li>
+<li>Grill Pan + Kompor + Gas</li>
+<li>Beef 500gr</li>
+<li>Chicken 500gr</li>
+<li>Saus BBQ & Sayuran</li>
+<li>Porsi 4–5 Orang</li>
 </ul>
 <p><strong>Rp 200.000</strong></p>
 </div>
@@ -138,9 +143,9 @@ footer{
 <div class="card">
 <h3>Paket Custom</h3>
 <ul>
-  <li>Menu & porsi bebas</li>
-  <li>Cocok acara kantor / keluarga</li>
-  <li>Bisa request alat tambahan</li>
+<li>Menu & porsi fleksibel</li>
+<li>Cocok acara kantor & keluarga</li>
+<li>Alat bisa tambah</li>
 </ul>
 <p><strong>Harga Menyesuaikan</strong></p>
 </div>
@@ -148,8 +153,18 @@ footer{
 </div>
 </section>
 
+<section>
+<h2 style="text-align:center">Galeri BBQ</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1">
+<img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092">
+<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
+</div>
+</section>
+
 <section id="booking">
-<h2>Form Booking</h2>
+<h2 style="text-align:center">Form Booking</h2>
 
 <form onsubmit="kirimWA();return false;">
 <label>Nama</label>
@@ -172,24 +187,16 @@ footer{
 </select>
 
 <label>Jarak (km)</label>
-<input type="number" id="jarak" disabled oninput="hitungTotal()">
-
-<label>Tanggal Sewa</label>
-<input type="date" id="tanggal" required>
+<input type="number" id="jarak" min="1" disabled oninput="hitungTotal()">
 
 <label>Total Harga</label>
 <input id="totalHarga" readonly value="Rp 0">
-
-<label>Catatan</label>
-<textarea id="note"></textarea>
 
 <button class="btn">Kirim Booking WhatsApp</button>
 </form>
 </section>
 
-<footer>
-© 2025 Grill&Chill • Cimpaeun – Tapos Depok
-</footer>
+<footer>© 2025 Grill&Chill • Cimpaeun – Tapos Depok</footer>
 
 <script>
 const hargaPaket={
@@ -199,19 +206,21 @@ const hargaPaket={
 };
 
 function hitungTotal(){
-let total=hargaPaket[paket.value]||0;
+let paketHarga=hargaPaket[paket.value]||0;
 let ongkir=0;
 
 if(pickup.value==="antar"){
-  jarak.disabled=false;
-  let j=parseFloat(jarak.value)||0;
-  if(j>5) ongkir=(j-5)*2500;
+jarak.disabled=false;
+let j=parseFloat(jarak.value)||0;
+if(j>5){
+ongkir=j*2500;
+}
 }else{
-  jarak.disabled=true;
-  jarak.value="";
+jarak.disabled=true;
+jarak.value="";
 }
 
-total+=ongkir;
+let total=paketHarga+ongkir;
 totalHarga.value="Rp "+total.toLocaleString("id-ID");
 }
 
@@ -220,11 +229,9 @@ const pesan=`Halo Grill&Chill 👋
 
 Nama: ${nama.value}
 Paket: ${paket.value}
-Pengambilan: ${pickup.value}
+Pengiriman: ${pickup.value}
 Jarak: ${jarak.value||'-'} km
-Tanggal: ${tanggal.value}
-Total: ${totalHarga.value}
-Catatan: ${note.value||'-'}`;
+Total Harga: ${totalHarga.value}`;
 
 window.open("https://wa.me/6289601360782?text="+encodeURIComponent(pesan));
 }

@@ -94,10 +94,7 @@ input,select{
   align-items:center;
   margin-top:12px
 }
-.condiment-row input{
-  width:80px;
-  text-align:center
-}
+.condiment-row input{width:80px;text-align:center}
 
 .breakdown{
   background:#0b0b0b;
@@ -128,11 +125,26 @@ input,select{
   border-radius:12px
 }
 
-footer{
-  text-align:center;
-  color:#aaa;
-  padding:20px
+/* MODAL PAYMENT */
+#paymentModal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:999;
+  align-items:center;
+  justify-content:center
 }
+#paymentModal .box{
+  background:#161616;
+  padding:20px;
+  border-radius:14px;
+  width:90%;
+  max-width:360px;
+  text-align:center
+}
+
+footer{text-align:center;color:#aaa;padding:20px}
 </style>
 </head>
 
@@ -147,7 +159,6 @@ footer{
   <p>Lengkap • Praktis • Siap Untuk Momen Spesial</p>
 </header>
 
-<!-- GALERI FOTO -->
 <section>
 <h2>Galeri BBQ</h2>
 <div class="gallery">
@@ -158,60 +169,50 @@ footer{
 </div>
 </section>
 
-<!-- DASHBOARD PAKET -->
 <section>
 <h2>Paket Grill</h2>
-
 <div class="grid">
+  <div class="card">
+    <span class="badge best">Best Seller</span>
+    <h3>Paket Romantic</h3>
+    <ul>
+      <li>Grill Pan + Kompor + Gas</li>
+      <li>Beef 250gr</li>
+      <li>Chicken 250gr</li>
+      <li>Saus BBQ + Sayur</li>
+    </ul>
+    <div class="price">Rp 119.000</div>
+    <button class="btn" onclick="setPaket(119000)">Pilih Paket</button>
+  </div>
 
-<div class="card">
-<span class="badge best">Best Seller</span>
-<h3>Paket Romantic</h3>
-<ul>
-<li>Grill Pan + Kompor + Gas</li>
-<li>Beef 250gr</li>
-<li>Chicken 250gr</li>
-<li>Saus BBQ + Sayur</li>
-<li>1–2 Orang</li>
-</ul>
-<div class="price">Rp 119.000</div>
-<button class="btn" onclick="setPaket(119000)">Pilih Paket</button>
-</div>
+  <div class="card">
+    <span class="badge fav">Favorit</span>
+    <h3>Paket Party</h3>
+    <ul>
+      <li>Beef 500gr</li>
+      <li>Chicken 500gr</li>
+      <li>Grill Set Lengkap</li>
+    </ul>
+    <div class="price">Rp 200.000</div>
+    <button class="btn" onclick="setPaket(200000)">Pilih Paket</button>
+  </div>
 
-<div class="card">
-<span class="badge fav">Favorit</span>
-<h3>Paket Party</h3>
-<ul>
-<li>Grill Pan + Kompor + Gas</li>
-<li>Beef 500gr</li>
-<li>Chicken 500gr</li>
-<li>Saus BBQ + Sayur</li>
-<li>4–5 Orang</li>
-</ul>
-<div class="price">Rp 200.000</div>
-<button class="btn" onclick="setPaket(200000)">Pilih Paket</button>
-</div>
-
-<div class="card">
-<h3>Paket Custom</h3>
-<ul>
-<li>Bebas pilih daging</li>
-<li>Bebas pilih condiment shabu</li>
-<li>Harga menyesuaikan</li>
-</ul>
-<div class="price">Custom</div>
-<button class="btn" onclick="setPaket('custom')">Atur Sendiri</button>
-</div>
-
+  <div class="card">
+    <h3>Paket Custom</h3>
+    <ul>
+      <li>Bebas pilih item</li>
+      <li>Harga fleksibel</li>
+    </ul>
+    <div class="price">Custom</div>
+    <button class="btn" onclick="setPaket('custom')">Atur Sendiri</button>
+  </div>
 </div>
 </section>
 
-<!-- BOOKING -->
 <section id="booking">
 <h2>Booking Sekarang</h2>
 
 <div class="card">
-
 <label>Nama Pemesan</label>
 <input id="nama">
 
@@ -227,7 +228,6 @@ footer{
 </select>
 
 <div id="customBox">
-
 <label>Berat Daging (gram)</label>
 <input type="number" id="beratDaging" value="0">
 <div class="note">Rp 25.000 / 100 gram</div>
@@ -237,24 +237,32 @@ footer{
 <div class="condiment-row">Dumpling <input type="number" class="condiment" value="0"></div>
 <div class="condiment-row">Sosis <input type="number" class="condiment" value="0"></div>
 <div class="condiment-row">Crab Stick <input type="number" class="condiment" value="0"></div>
-
 </div>
 
 <div class="breakdown">
-<div class="row"><span>Total</span><span id="totalText">Rp 0</span></div>
-<div class="row"><span>DP 50%</span><span id="dpText">Rp 0</span></div>
-<div class="row total"><span>Sisa Bayar</span><span id="sisaText">Rp 0</span></div>
+  <div class="row"><span>Total</span><span id="totalText">Rp 0</span></div>
+  <div class="row"><span>DP 50%</span><span id="dpText">Rp 0</span></div>
+  <div class="row total"><span>Sisa</span><span id="sisaText">Rp 0</span></div>
 </div>
 
 <div class="actions">
-<button class="btn" style="background:var(--success)" onclick="kirimWA()">💬 WhatsApp</button>
-<button class="btn" onclick="alert('Transfer BCA 6830900096 a.n Hilda Parwati')">💳 Transfer DP</button>
+  <button class="btn" style="background:var(--success)" onclick="kirimWA()">💬 WhatsApp</button>
+  <button class="btn" onclick="openPayment()">💳 Transfer DP</button>
 </div>
-
 </div>
 </section>
 
 <footer>© 2025 Grill&Chill</footer>
+
+<!-- MODAL PAYMENT -->
+<div id="paymentModal">
+  <div class="box">
+    <h3>Pilih Metode Pembayaran</h3>
+    <button class="btn" onclick="payBank()">🏦 Transfer Bank</button>
+    <button class="btn" onclick="payEwallet()">💳 E-Wallet</button>
+    <button class="btn" style="background:#444" onclick="closePayment()">Batal</button>
+  </div>
+</div>
 
 <script>
 function rupiah(n){
@@ -271,15 +279,15 @@ function hitung(){
   var paket = document.getElementById("paket").value;
   var berat = Number(document.getElementById("beratDaging").value||0);
 
-  var condiments = document.getElementsByClassName("condiment");
+  var cond = document.getElementsByClassName("condiment");
   var qty = 0;
   var detail = "";
 
-  for(var i=0;i<condiments.length;i++){
-    var q = Number(condiments[i].value||0);
+  for(var i=0;i<cond.length;i++){
+    var q = Number(cond[i].value||0);
     qty += q;
     if(q>0){
-      var nama = condiments[i].parentNode.firstChild.textContent.trim();
+      var nama = cond[i].parentNode.firstChild.textContent.trim();
       detail += "- "+nama+" : "+q+" pcs\n";
     }
   }
@@ -290,20 +298,19 @@ function hitung(){
   }
 
   if(paket==="custom"){
-    total += (berat/100)*25000;
-    total += qty*1000;
+    total += (berat/100)*25000 + qty*1000;
   }else{
     total += Number(paket||0);
   }
 
-  document.getElementById("totalText").innerHTML = rupiah(total);
-  document.getElementById("dpText").innerHTML = rupiah(total*0.5);
-  document.getElementById("sisaText").innerHTML = rupiah(total*0.5);
+  totalText.innerText = rupiah(total);
+  dpText.innerText = rupiah(total*0.5);
+  sisaText.innerText = rupiah(total*0.5);
 
   window.waDetail =
     "Paket : "+paket+"\n"+
-    (berat>0 ? "Daging : "+berat+" gram\n":"")+
-    (detail!=="" ? "Condiment:\n"+detail:"");
+    (berat>0?"Daging : "+berat+" gr\n":"")+
+    (detail!==""?"Condiment:\n"+detail:"");
 }
 
 setInterval(hitung,300);
@@ -319,6 +326,18 @@ function kirimWA(){
     "Sisa : "+sisaText.innerText;
 
   window.open("https://wa.me/6289601360782?text="+encodeURIComponent(msg));
+}
+
+/* PAYMENT */
+function openPayment(){paymentModal.style.display="flex";}
+function closePayment(){paymentModal.style.display="none";}
+function payBank(){
+  closePayment();
+  alert("Transfer DP ke:\nBCA 6830900096\nA.n Hilda Parwati\nNominal: "+dpText.innerText);
+}
+function payEwallet(){
+  closePayment();
+  window.open("https://wa.me/?text="+encodeURIComponent("Pembayaran DP Grill&Chill\nNominal: "+dpText.innerText));
 }
 </script>
 

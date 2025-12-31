@@ -222,8 +222,8 @@ footer{
 </div>
 
 <div class="actions">
-<button class="btn" style="background:var(--success)" onclick="kirimWA()">WhatsApp</button>
-<button class="btn" onclick="alert('Transfer BCA 6830900096 a.n Hilda Parwati')">Transfer DP</button>
+<button class="btn" style="background:var(--success)" onclick="kirimWA()">💬 WhatsApp</button>
+<button class="btn" onclick="alert('Transfer BCA 6830900096 a.n Hilda Parwati')">💳 Transfer DP</button>
 </div>
 
 </div>
@@ -242,14 +242,20 @@ function setPaket(val){
 
 function hitung(){
   var total = 0;
-
   var paket = document.getElementById("paket").value;
   var berat = Number(document.getElementById("beratDaging").value||0);
 
   var condiments = document.getElementsByClassName("condiment");
+  var detailCondiment = "";
   var qty = 0;
+
   for(var i=0;i<condiments.length;i++){
-    qty += Number(condiments[i].value||0);
+    var q = Number(condiments[i].value||0);
+    qty += q;
+    if(q>0){
+      var nama = condiments[i].parentNode.firstChild.textContent.trim();
+      detailCondiment += "- "+nama+" : "+q+" pcs\n";
+    }
   }
 
   if(berat>0 || qty>0){
@@ -267,16 +273,25 @@ function hitung(){
   document.getElementById("totalText").innerHTML = rupiah(total);
   document.getElementById("dpText").innerHTML = rupiah(total*0.5);
   document.getElementById("sisaText").innerHTML = rupiah(total*0.5);
+
+  window.waDetail =
+    "Paket : "+paket+"\n"+
+    (berat>0 ? "Daging : "+berat+" gram\n":"")+
+    (detailCondiment!=="" ? "Condiment:\n"+detailCondiment:"");
 }
 
 setInterval(hitung,300);
 
 function kirimWA(){
   var msg =
-    "BOOKING GRILL&CHILL\n"+
-    "Nama: "+nama.value+"\n"+
-    "Tanggal: "+tanggal.value+"\n"+
-    "Total: "+totalText.innerText;
+    "BOOKING GRILL&CHILL\n\n"+
+    "Nama : "+nama.value+"\n"+
+    "Tanggal : "+tanggal.value+"\n\n"+
+    waDetail+"\n"+
+    "Total : "+totalText.innerText+"\n"+
+    "DP 50% : "+dpText.innerText+"\n"+
+    "Sisa : "+sisaText.innerText;
+
   window.open("https://wa.me/6289601360782?text="+encodeURIComponent(msg));
 }
 </script>

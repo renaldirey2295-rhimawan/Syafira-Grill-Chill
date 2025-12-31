@@ -1,325 +1,284 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grill&Chill | Premium BBQ Package</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --primary:#e63946;
   --dark:#0f0f0f;
   --card:#161616;
-  --text:#eeeeee;
+  --text:#eee;
   --accent:#ffcc70;
   --success:#25d366;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text)}
-header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:36px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('https://images.unsplash.com/photo-1558030006-450675393462');background-size:cover;background-position:center}
-header h1{font-size:48px;margin:0}
-header p{font-size:18px;max-width:760px;margin:12px 0 18px}
-section{padding:60px 20px;max-width:1100px;margin:auto}
-h2{text-align:center;margin-bottom:18px}
-.btn{background:var(--primary);color:#fff;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:600;cursor:pointer;display:inline-block}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.card{background:var(--card);padding:20px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px}
-label{display:block;margin-top:12px;font-weight:600}
-input,select,textarea{width:100%;padding:12px;border-radius:10px;border:none;margin-top:8px;background:#0b0b0b;color:var(--text)}
-.breakdown{background:#0b0b0b;padding:14px;border-radius:10px;margin-top:12px}
-.row{display:flex;justify-content:space-between;margin:8px 0}
-.total{font-size:18px;font-weight:800;color:var(--success)}
-.small{font-size:13px;color:#bbb}
-.note{font-size:14px;color:#ccc;margin-top:8px;background:#0b0b0b;padding:12px;border-radius:10px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-.footer{background:#000;color:#aaa;text-align:center;padding:18px;margin-top:30px}
-@media(max-width:600px){header h1{font-size:34px}}
+body{margin:0;font-family:Poppins;background:var(--dark);color:var(--text)}
+
+header{
+  padding:36px;
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url('https://images.unsplash.com/photo-1558030006-450675393462');
+  background-size:cover;
+  background-position:center
+}
+.header-top{display:flex;align-items:center;gap:12px}
+.header-top img{height:46px}
+
+section{padding:40px 16px;max-width:1000px;margin:auto}
+h1{font-size:42px;margin:16px 0}
+h2{text-align:center;margin-bottom:24px}
+
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:20px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:10px
+}
+.best{background:var(--accent);color:#000}
+.fav{background:#ff7675;color:#000}
+
+ul{padding-left:18px}
+li{margin:6px 0;font-size:14px}
+
+.price{font-size:20px;font-weight:700;margin-top:10px}
+
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:12px;
+  font-weight:600;
+  cursor:pointer;
+  width:100%;
+  margin-top:10px
+}
+
+label{display:block;margin-top:14px;font-weight:600}
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  border-radius:10px;
+  border:none;
+  background:#0b0b0b;
+  color:#fff
+}
+
+.note{font-size:13px;color:#bbb;margin-top:6px}
+
+.condiment-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:12px
+}
+.condiment-row input{
+  width:80px;
+  text-align:center
+}
+
+.breakdown{
+  background:#0b0b0b;
+  padding:14px;
+  border-radius:10px;
+  margin-top:20px
+}
+.row{display:flex;justify-content:space-between;margin:6px 0}
+.total{color:var(--success);font-weight:700}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px
+}
+.actions button{flex:1}
+
+footer{
+  text-align:center;
+  color:#aaa;
+  padding:20px
+}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Grill&Chill</h1>
-  <p>Premium BBQ Package • Lengkap • Praktis • Siap Untuk Momen Spesial</p>
-  <a class="btn" href="#booking">Booking Sekarang</a>
-  <p>"Tidak ada yang bisa mengerti kantongmu ditanggal tua untuk makan enak kecuali kami"</p>
+  <div class="header-top">
+    <img src="logo.png">
+    <strong>Grill&Chill</strong>
+  </div>
+  <h1>Premium BBQ Package</h1>
+  <p>Lengkap • Praktis • Siap Untuk Momen Spesial</p>
 </header>
 
 <section>
-  <h2>Paket Grill</h2>
-  <div class="grid">
-    <div class="card">
-      <span style="display:inline-block;background:var(--accent);color:#000;padding:6px 12px;border-radius:999px;font-weight:700;margin-bottom:10px">Best Seller</span>
-      <h3>Paket Romantic</h3>
-      <ul>
-        <li>Grill Pan + Kompor + Gas</li>
-        <li>Beef 250gr</li>
-        <li>Chicken 250gr</li>
-        <li>Saus BBQ + Sayur</li>
-        <li>1–2 Orang</li>
-      </ul>
-      <strong>Rp 119.000</strong>
-    </div>
+<h2>Paket Grill</h2>
 
-    <div class="card">
-      <span style="display:inline-block;background:var(--accent);color:#000;padding:6px 12px;border-radius:999px;font-weight:700;margin-bottom:10px">Favorit</span>
-      <h3>Paket Party</h3>
-      <ul>
-        <li>Grill Pan + Kompor + Gas</li>
-        <li>Beef 500gr</li>
-        <li>Chicken 500gr</li>
-        <li>Saus BBQ + Sayur</li>
-        <li>4–5 Orang</li>
-      </ul>
-      <strong>Rp 200.000</strong>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h3>Paket Custom</h3>
-      <p>Menu & porsi fleksibel (hub admin).</p>
-      <strong>Harga Menyesuaikan</strong>
-    </div>
-  </div>
-</section>
+<div class="card">
+<span class="badge best">Best Seller</span>
+<h3>Paket Romantic</h3>
+<ul>
+<li>Grill Pan + Kompor + Gas</li>
+<li>Beef 250gr</li>
+<li>Chicken 250gr</li>
+<li>Saus BBQ + Sayur</li>
+<li>1–2 Orang</li>
+</ul>
+<div class="price">Rp 119.000</div>
+<button class="btn" onclick="setPaket(119000)">Pilih Paket</button>
+</div>
 
-<section>
-  <h2>Galeri BBQ</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="bbq1">
-    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd" alt="bbq2">
-    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="bbq3">
-    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="bbq4">
-  </div>
+<div class="card">
+<span class="badge fav">Favorit</span>
+<h3>Paket Party</h3>
+<ul>
+<li>Grill Pan + Kompor + Gas</li>
+<li>Beef 500gr</li>
+<li>Chicken 500gr</li>
+<li>Saus BBQ + Sayur</li>
+<li>4–5 Orang</li>
+</ul>
+<div class="price">Rp 200.000</div>
+<button class="btn" onclick="setPaket(200000)">Pilih Paket</button>
+</div>
+
+<div class="card">
+<h3>Paket Custom</h3>
+<ul>
+<li>Bebas pilih daging</li>
+<li>Bebas pilih condiment shabu</li>
+<li>Harga menyesuaikan</li>
+</ul>
+<div class="price">Custom</div>
+<button class="btn" onclick="setPaket('custom')">Atur Sendiri</button>
+</div>
+
+</div>
 </section>
 
 <section id="booking">
-  <h2>Hitung Harga & Booking</h2>
+<h2>Booking Sekarang</h2>
 
-  <div class="card" style="max-width:820px;margin:auto">
+<div class="card">
 
-    <!-- NEW: Nama & Tanggal -->
-    <label>Nama Pemesan</label>
-    <input type="text" id="nama" placeholder="Nama lengkap" />
+<label>Nama Pemesan</label>
+<input id="nama">
 
-    <label>Tanggal Acara</label>
-    <input type="date" id="tanggal" />
+<label>Tanggal Acara</label>
+<input type="date" id="tanggal">
 
-    <label>Pilih Paket</label>
-    <select id="paket" onchange="hitung()">
-      <option value="0">-- Pilih Paket --</option>
-      <option value="119000">Paket Romantic – Rp119.000</option>
-      <option value="200000">Paket Party – Rp200.000</option>
-      <option value="0">Paket Custom – Harga Menyesuaikan</option>
-    </select>
+<label>Pilih Paket</label>
+<select id="paket">
+<option value="">-- Pilih Paket --</option>
+<option value="119000">Paket Romantic</option>
+<option value="200000">Paket Party</option>
+<option value="custom">Paket Custom</option>
+</select>
 
-    <label>Metode Pengambilan</label>
-    <select id="metode" onchange="hitung()">
-      <option value="ambil">Ambil Sendiri</option>
-      <option value="antar">Diantar</option>
-    </select>
+<div id="customBox">
 
-    <label>Jarak Pengantaran (KM)</label>
-    <input id="jarak" type="number" min="0" placeholder="Contoh: 8" oninput="hitung()" />
+<label>Berat Daging (gram)</label>
+<input type="number" id="beratDaging" value="0">
+<div class="note">Rp 25.000 / 100 gram</div>
 
-    <div class="breakdown" id="breakdownBox">
-      <div class="row"><div>Harga Paket</div><div id="hargaPaketText">Rp 0</div></div>
-      <div class="row"><div>Ongkir</div><div id="ongkirText">Rp 0</div></div>
-      <div class="row"><div>Subtotal</div><div id="subtotalText">Rp 0</div></div>
-      <div class="row"><div>DP (50%)</div><div id="dpText">Rp 0</div></div>
-      <div class="row total"><div>Sisa Bayar</div><div id="sisaText">Rp 0</div></div>
-    </div>
+<label>Condiment Shabu (Rp 1.000 / pcs)</label>
+<div class="condiment-row">Fish Roll <input type="number" class="condiment" value="0"></div>
+<div class="condiment-row">Dumpling <input type="number" class="condiment" value="0"></div>
+<div class="condiment-row">Sosis <input type="number" class="condiment" value="0"></div>
+<div class="condiment-row">Crab Stick <input type="number" class="condiment" value="0"></div>
 
-    <div style="margin-top:12px">
-      <small class="small">• Gratis 1–5 km • Di atas 5 km = Rp 2.500 / km</small><br>
-      <small class="small">• DP 50% wajib untuk mengunci tanggal • Upload KTP/KK & bukti DP di Google Form</small>
-    </div>
-
-    <div class="actions">
-      <a id="openFormBtn" class="btn" target="_blank" rel="noopener">📋 Lanjut Isi Google Form</a>
-      <button class="btn" style="background:var(--success);color:#000" id="waBtn">💬 Kirim Ringkasan via WA</button>
-      <button class="btn" style="background:#444" onclick="showDP()">💳 Transfer DP</button>
-    </div>
-
-  </div>
-</section>
-
-<footer class="footer">
-  <p>📍 Cimpaeun – Tapos Depok • WhatsApp: 089601360782</p>
-  <p>© 2025 Grill&Chill</p>
-</footer>
-
-<!-- POPUP DP -->
-<div id="dpPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;align-items:center;justify-content:center">
-  <div style="background:#161616;padding:26px;border-radius:16px;text-align:center;width:92%;max-width:420px">
-    <h3>💳 Transfer DP 50%</h3>
-    <p style="margin:.25rem 0 .5rem">Silakan transfer DP sebesar:</p>
-    <h2 id="dpNominal" style="color:var(--success)"></h2>
-    <hr style="border-color:#2b2b2b;margin:14px 0">
-    <p><strong>BCA</strong></p>
-    <p id="rekening">6830900096</p>
-    <p>a.n <strong>Hilda Parwati</strong></p>
-    <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap">
-      <button class="btn" onclick="copyText('rekening')">📋 Salin Rekening</button>
-      <button class="btn" style="background:var(--success);color:#000" onclick="copyDP()">📋 Salin Nominal</button>
-    </div>
-    <div style="margin-top:14px">
-      <button class="btn" style="background:#555" onclick="closeDP()">Tutup</button>
-    </div>
-  </div>
 </div>
 
+<div class="breakdown">
+<div class="row"><span>Total</span><span id="totalText">Rp 0</span></div>
+<div class="row"><span>DP 50%</span><span id="dpText">Rp 0</span></div>
+<div class="row total"><span>Sisa Bayar</span><span id="sisaText">Rp 0</span></div>
+</div>
+
+<div class="actions">
+<button class="btn" style="background:var(--success)" onclick="kirimWA()">WhatsApp</button>
+<button class="btn" onclick="alert('Transfer BCA 6830900096 a.n Hilda Parwati')">Transfer DP</button>
+</div>
+
+</div>
+</section>
+
+<footer>© 2025 Grill&Chill</footer>
+
 <script>
-/* =========== CONFIG =========== */
-/* Google Form prefill base (ambil dari Form "Bagikan/Prefill") */
-const FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeCAOL8N1m9EBtw8q7mZ7Gii87DdAjbmoedlib88B1SGsssdg/viewform?usp=pp_url";
+function rupiah(n){
+  return "Rp " + Number(n||0).toLocaleString("id-ID");
+}
 
-/* Jika kamu punya entry IDs di Form untuk prefill, isi di sini. 
-   Contoh dari percakapan: entry.1123641359 untuk paket, entry.1420825954 untuk metode. 
-   Jika belum ada, biarkan string kosong. */
-const ENTRY_PAKET  = "entry.1123641359";
-const ENTRY_METODE = "entry.1420825954";
-const ENTRY_JARAK  = ""; // isi jika ada
-const ENTRY_NAMA   = ""; // isi jika ada
-const ENTRY_TANGGAL = ""; // isi jika ada
-const ENTRY_TOTAL  = ""; // isi jika ada
-const ENTRY_DP     = ""; // isi jika ada
-const ENTRY_SISA   = ""; // isi jika ada
+function setPaket(val){
+  document.getElementById("paket").value = val;
+}
 
-/* Admin WhatsApp (international format tanpa +) */
-const ADMIN_WA = "6289601360782";
-
-/* ========== ELEMENTS ========== */
-const el = {
-  nama: document.getElementById('nama'),
-  tanggal: document.getElementById('tanggal'),
-  paket: document.getElementById('paket'),
-  metode: document.getElementById('metode'),
-  jarak: document.getElementById('jarak'),
-  hargaPaketText: document.getElementById('hargaPaketText'),
-  ongkirText: document.getElementById('ongkirText'),
-  subtotalText: document.getElementById('subtotalText'),
-  dpText: document.getElementById('dpText'),
-  sisaText: document.getElementById('sisaText'),
-  openFormBtn: document.getElementById('openFormBtn'),
-  waBtn: document.getElementById('waBtn'),
-  dpNominal: document.getElementById('dpNominal'),
-  rekening: document.getElementById('rekening')
-};
-
-/* ======= UTIL ======= */
-function toRp(n){ return 'Rp ' + Number(n || 0).toLocaleString('id-ID'); }
-
-/* ======= CALC ======= */
 function hitung(){
-  const harga = Number(el.paket.value) || 0;
-  const km = Number(el.jarak.value) || 0;
-  const metodeVal = el.metode.value;
+  var total = 0;
 
-  // ongkir: 1-5 km gratis, >5 => (km - 5) * 2500
-  let ongkir = 0;
-  if(metodeVal === 'antar' && km > 5){ ongkir = (km - 5) * 2500; }
+  var paket = document.getElementById("paket").value;
+  var berat = Number(document.getElementById("beratDaging").value||0);
 
-  const subtotal = harga + ongkir;
-  const dp = Math.round(subtotal * 0.5);
-  const sisa = subtotal - dp;
+  var condiments = document.getElementsByClassName("condiment");
+  var qty = 0;
+  for(var i=0;i<condiments.length;i++){
+    qty += Number(condiments[i].value||0);
+  }
 
-  // update UI
-  el.hargaPaketText.innerText = toRp(harga);
-  el.ongkirText.innerText = toRp(ongkir);
-  el.subtotalText.innerText = toRp(subtotal);
-  el.dpText.innerText = toRp(dp);
-  el.sisaText.innerText = toRp(sisa);
+  if(berat>0 || qty>0){
+    paket = "custom";
+    document.getElementById("paket").value="custom";
+  }
 
-  // update form prefill link
-  updateFormPrefill({ harga, ongkir, subtotal, dp, sisa });
-  // update WA button behavior
-  updateWAButton();
+  if(paket==="custom"){
+    total += (berat/100)*25000;
+    total += qty*1000;
+  }else{
+    total += Number(paket||0);
+  }
+
+  document.getElementById("totalText").innerHTML = rupiah(total);
+  document.getElementById("dpText").innerHTML = rupiah(total*0.5);
+  document.getElementById("sisaText").innerHTML = rupiah(total*0.5);
 }
 
-/* Build prefill URL dynamically */
-function updateFormPrefill({ harga, ongkir, subtotal, dp, sisa } = {}){
-  if(!FORM_BASE) return;
-  const parts = [];
-  if(ENTRY_PAKET) parts.push(ENTRY_PAKET + '=' + encodeURIComponent(el.paket.options[el.paket.selectedIndex].text));
-  if(ENTRY_METODE) parts.push(ENTRY_METODE + '=' + encodeURIComponent(el.metode.value === 'antar' ? 'Diantar' : 'Ambil Sendiri'));
-  if(ENTRY_JARAK) parts.push(ENTRY_JARAK + '=' + encodeURIComponent(el.jarak.value || ''));
-  if(ENTRY_NAMA) parts.push(ENTRY_NAMA + '=' + encodeURIComponent(el.nama.value || ''));
-  if(ENTRY_TANGGAL) parts.push(ENTRY_TANGGAL + '=' + encodeURIComponent(el.tanggal.value || ''));
-  if(ENTRY_TOTAL) parts.push(ENTRY_TOTAL + '=' + encodeURIComponent(subtotal || ''));
-  if(ENTRY_DP) parts.push(ENTRY_DP + '=' + encodeURIComponent(dp || ''));
-  if(ENTRY_SISA) parts.push(ENTRY_SISA + '=' + encodeURIComponent(sisa || ''));
+setInterval(hitung,300);
 
-  let url = FORM_BASE;
-  if(parts.length) url += '&' + parts.join('&');
-  el.openFormBtn.href = url;
+function kirimWA(){
+  var msg =
+    "BOOKING GRILL&CHILL\n"+
+    "Nama: "+nama.value+"\n"+
+    "Tanggal: "+tanggal.value+"\n"+
+    "Total: "+totalText.innerText;
+  window.open("https://wa.me/6289601360782?text="+encodeURIComponent(msg));
 }
-
-/* Compose professional WA message and attach to button */
-function updateWAButton(){
-  const paketText = el.paket.options[el.paket.selectedIndex]?.text || '-';
-  const metodeText = el.metode.value === 'antar' ? 'Diantar' : 'Ambil Sendiri';
-  const jarakText = el.metode.value === 'antar' ? (el.jarak.value ? el.jarak.value + ' km' : '-') : '-';
-
-  const pesan =
-`🔥 BOOKING BBQ - GRILL&CHILL 🔥
-
-👤 Nama: ${el.nama.value || '-'}
-📅 Tanggal Acara: ${el.tanggal.value || '-'}
-
-📦 Paket: ${paketText}
-🚚 Metode: ${metodeText}
-📍 Jarak: ${jarakText}
-
-💰 RINCIAN BIAYA
-• Harga Paket : ${el.hargaPaketText.innerText}
-• Ongkir       : ${el.ongkirText.innerText}
-—————————————
-• Total        : ${el.subtotalText.innerText}
-• DP 50%       : ${el.dpText.innerText}
-• Sisa Bayar   : ${el.sisaText.innerText}
-
-💳 Transfer DP:
-BCA ${el.rekening.innerText}
-a.n Hilda Parwati
-
-📎 Saya akan mengisi Google Form & upload KTP/KK.`;
-
-  el.waBtn.onclick = function(){
-    window.open("https://wa.me/" + ADMIN_WA + "?text=" + encodeURIComponent(pesan), "_blank");
-  };
-}
-
-/* DP popup functions */
-function showDP(){
-  el.dpNominal.innerText = el.dpText.innerText;
-  document.getElementById('dpPopup').style.display = 'flex';
-}
-function closeDP(){ document.getElementById('dpPopup').style.display = 'none'; }
-function copyText(id){
-  const text = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text).then(()=> alert('Berhasil disalin ✅'));
-}
-function copyDP(){
-  const raw = el.dpText.innerText.replace(/[^\d]/g,'');
-  navigator.clipboard.writeText(raw).then(()=> alert('Nominal DP disalin ✅'));
-}
-
-/* init */
-document.addEventListener('DOMContentLoaded', function(){
-  // wire up onchange/input handlers
-  ['paket','metode','jarak','nama','tanggal'].forEach(id=>{
-    const elmt = document.getElementById(id);
-    if(elmt) elmt.addEventListener('input', hitung);
-    if(elmt) elmt.addEventListener('change', hitung);
-  });
-
-  // initial calc
-  hitung();
-});
 </script>
 
 </body>
